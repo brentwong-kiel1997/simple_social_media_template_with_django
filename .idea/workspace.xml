@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8339b247-4ed5-454c-9f41-faca7f8f4ffd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/social.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/posts/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/posts/templates/posts/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/posts/templates/posts/delete_post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/posts/templates/posts/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/posts/templates/posts/post_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/posts/templates/posts/posts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/posts/templates/posts/single_post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/posts/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/templates/users/confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/templates/users/edit_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/templates/users/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/templates/users/message.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/templates/users/message_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/templates/users/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/templates/users/profile_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/templates/users/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/templates/users/user_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/templates/users/users.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social/users/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2ouhwWDL3DAdcU5Nk0MsrLuFHbV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/bb/PycharmProjects/social/social/users/templates/users"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/social/users/templates/users" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/social/posts/templates/posts" />
+      <recent name="$PROJECT_DIR$/social/post" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-98f27166c754-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.21829.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8339b247-4ed5-454c-9f41-faca7f8f4ffd" name="Changes" comment="" />
+      <created>1731725606962</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731725606962</updated>
+    </task>
+    <servers />
+  </component>
+</project>

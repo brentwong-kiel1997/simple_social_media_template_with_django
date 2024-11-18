@@ -1,0 +1,41 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}
+Users
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .card {
+        width: 300px; /* Fixed width */
+        height: 400px; /* Fixed height */
+        overflow: hidden; /* Ensures no overflow from content */
+    }
+    .card-img-top {
+        width: 100%; /* Ensures image takes full width of card */
+        height: 200px; /* Sets a fixed height for the image */
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        {% for user in users %}
+        <div class="col-md-4 mb-4"> <!-- Adjust col-md-4 for 3 cards per row -->
+            <div class="card h-100">
+                <a href="{% url 'user_info' user.id %}"><img src="{{ user.profile.profile_image.url }}"
+                                class="card-img-top img-fluid"
+                                alt="Image for {{ user.username }}"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.username }}</h5>
+                    <p class="card-text" style="font-weight: normal;">{{ user.profile.bio|truncatechars:30 }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

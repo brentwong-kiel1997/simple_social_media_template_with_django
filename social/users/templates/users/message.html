@@ -1,0 +1,39 @@
+{% extends 'posts/base.html' %}
+
+{% block title %} Message with {{recipient.username}} {% endblock %}
+
+
+{% block content %}
+
+<h1>Message with {{recipient.username}}</h1>
+<p>Messages will only be saved for 72 hours.</p>
+<p>You can send 5 messages per person within 72 hours.</p>
+<p>You have {{chances}} chance(s) left for messaging {{recipient.username}}.</p>
+
+<div class="row">
+    {% for website_message in website_messages %}
+    <div class="col-md-12 mb-3">
+        <div class="card">
+            <div class="card-body">
+                {% if website_message.sender == request.user %}
+                <h5 class="card-title text-primary">{{ website_message.sender }}</h5>
+                {% else %}
+                <h5 class="card-title text-secondary">{{ website_message.sender }}</h5>
+                {% endif %}
+                <h6 class="card-subtitle mb-2 text-muted">UTC {{ website_message.created|date:"d M Y, H:i" }}</h6>
+                <p class="card-text">{{ website_message.body }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if chances > 0 %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+</form>
+{% endif %}
+
+{% endblock %}

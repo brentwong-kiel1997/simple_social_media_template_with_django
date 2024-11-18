@@ -1,0 +1,14 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+<div class="container">
+    <a href="{% url 'single_post' post.id %}" class="btn btn-secondary">Back</a>
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete "{{ post.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'single_post' post.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="container my-5">
+        <!-- Post Title -->
+        <h1 class="display-4 mb-4 text-center text-primary">{{ post.title }}</h1>
+        <a href="{% url 'user_info' post.owner.id %}" class="text-muted"
+           title="View profile of {{ post.owner.username }}">
+            Posted by: {{ post.owner.username }}
+        </a>
+        {% if user == post.owner %}
+        <a href="{% url 'edit_post' post.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+        </p>
+
+
+        <!-- Post Body -->
+        <div class="lead mb-4 text-muted">
+            <p>{{ post.body|safe }}</p>
+        </div>
+    </div>
+
+    <!-- Post Content with Image and Video in the Same Row -->
+    <div class="row">
+        <!-- Post Image -->
+        <div class="col-md-6 mb-4">
+            {% if post.post_image %}
+            <img class="img-fluid rounded" src="{{ post.post_image.url }}" alt="Image for {{ post.title }}">
+            {% endif %}
+        </div>
+
+        <!-- YouTube Video (Non-Draggable) -->
+        {% if post.youtube_url %}
+        <div class="col-md-6 mb-4">
+            <div id="youtube-container"
+                 style="
+                    position: relative;
+                    z-index: 1050;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: stretch;">
+                <!-- Video -->
+                <div class="ratio ratio-16x9">
+                    <iframe
+                            src="{{ url }}"
+                            allowfullscreen
+                            title="YouTube video"></iframe>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <p class="text-muted">Created on: UTC {{ post.created_at|date:"d M Y, H:i" }}</p>
+        <p class="text-muted">Last updated on: UTC {{ post.updated_at|date:"d M Y, H:i" }}</p>
+
+
+    </div>
+</div>
+{% endblock %}

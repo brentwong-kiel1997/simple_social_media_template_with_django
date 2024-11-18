@@ -1,0 +1,14 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}
+Delete Profile
+{% endblock %}
+
+{% block content %}
+<h2>Are you sure you want to delete your profile, {{ user.username }}?</h2>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete Profile</button>
+    <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'posts/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+<!-- users/templates/users/profile.html -->
+<h2>Profile</h2>
+
+{% if profile.profile_image %}
+<img src="{{ profile.profile_image.url }}" alt="{{ profile.user_name }}'s profile picture" width="200" height="200"/>
+{% else %}
+<p>No profile picture available.</p>
+{% endif %}
+
+<p>{{ profile.user_name }}</p>
+<p>{{ profile.email }}</p>
+
+<a href="{% url 'edit_profile' %}">Edit Profile</a>
+
+
+<a href="{% url 'message_list' %}">message list</a>
+
+{% endblock %}

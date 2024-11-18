@@ -1,0 +1,20 @@
+{% extends 'posts/base.html' %}
+
+
+{% block title %}
+Edit Profile
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'profile' %}" class="btn btn-link">Go Back</a>
+<h2>Edit Profile</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Commit</button>
+</form>
+
+<a href="{% url 'delete_profile' %}" type="submit" class="btn btn-danger">Delete Profile</a>
+
+
+{% endblock %}

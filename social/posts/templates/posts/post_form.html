@@ -1,0 +1,60 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+        <input type="text" name="{{ form.title.name }}" class="form-control"
+               value="{{ form.title.value|default_if_none:'' }}" id="{{ form.title.id_for_label }}"/>
+        {% for error in form.title.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.youtube_url.id_for_label }}">{{ form.youtube_url.label }}</label>
+        <input type="text" name="{{ form.youtube_url.name }}" class="form-control"
+               value="{{ form.youtube_url.value|default_if_none:'' }}" id="{{ form.youtube_url.id_for_label }}"/>
+        {% for error in form.youtube_url.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.post_image.id_for_label }}">{{ form.post_image.label }}</label>
+        <input type="file" name="{{ form.post_image.name }}" class="form-control"
+               id="{{ form.post_image.id_for_label }}" accept="image/*"/>
+        {% for error in form.post_image.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.body.id_for_label }}">{{ form.body.label }}</label>
+        <textarea name="{{ form.body.name }}" class="form-control" id="{{ form.body.id_for_label }}">{{ form.body.value|default_if_none:'' }}</textarea>
+        {% for error in form.body.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <br>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    {% if post %}
+    <a href="{% url 'single_post' post.id %}" class="btn btn-secondary">Cancel</a>
+    {% else %}
+    <a href="{% url 'posts' %}" class="btn btn-secondary">Cancel</a>
+    {% endif %}
+
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.16.0/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('id_body');  // Enable CKEditor for body field
+</script>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}{{ page_user.username }}'s profile{% endblock %}
+
+
+{% block content %}
+<div class="user-profile">
+    {% if page_user.profile.profile_image %}
+    <img src="{{ page_user.profile.profile_image.url }}" alt="Profile image for {{ page_user.username }}"
+         style="width: 150px; height: 150px; object-fit: cover;"> {% endif %}
+    <h1>{{ page_user.username }}</h1>
+
+
+    <p>Location: {{ page_user.profile.location }}</p>
+    <p>Bio: {{page_user.profile.bio}}</p>
+
+    {% if user.is_authenticated and user == page_user %}
+    <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+    {% else %}
+    <a href="{% url 'message' page_user.id %}" class="btn btn-secondary">Send message</a>
+    {% endif %}
+
+    <h2>Posts</h2>
+
+    {% if posts %}
+
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4 mb-4"> <!-- Adjust col-md-4 for 3 cards per row -->
+                <div class="card h-100">
+                    <a href="{% url 'single_post' post.id %}"><img src="{{ post.post_image.url }}"
+                                                                   class="card-img-top img-fluid"
+                                                                   alt="Image for {{ post.title }}"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text" style="font-weight: normal;">{{ post.body|truncatechars:30|striptags }}</p>
+                        <p class="card-text text-muted">Posted by: {{ post.owner.username }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <p>This user has no posts.</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

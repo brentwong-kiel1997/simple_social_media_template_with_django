@@ -1,0 +1,47 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}
+Message list
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<h3>messages sent to you</h3>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Sender</th>
+            <th>Message</th>
+            <th>Created</th>
+            <th>Read</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for website_message in website_messages %}
+        <tr {% if not website_message.is_read %}style="background-color: #f9c2c2;" {% endif %}>
+            <td>
+                <a href="{% url 'message' website_message.sender.id %}">
+                    {{ website_message.sender.username }}
+                </a>
+            </td>
+            <td>{{ website_message.body|slice:10 }}</td>
+            <td>{{ website_message.created|date:"d M Y, H:i" }}</td>
+            <td>
+                {% if website_message.is_read %}
+                    &#10003; <!-- Checkmark for read -->
+                {% else %}
+                    &#10005; <!-- Cross for unread -->
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+{% endblock %}
