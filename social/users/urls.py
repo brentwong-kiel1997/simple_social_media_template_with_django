@@ -1,8 +1,11 @@
 # users/urls.py
+from tempfile import template
+
 from django.urls import path
 from . import views
 from django.contrib.auth.views import LogoutView
 
+from django.contrib.auth import views as auth
 
 urlpatterns = [
     path('register/', views.register_user, name='register'),
@@ -16,3 +19,15 @@ urlpatterns = [
     path('message/<str:recipient_id>', views.message, name='message'),
     path('message_list', views.message_list, name='message_list'),
 ]
+
+urlpatterns += [path('reset_password/', auth.PasswordResetView.as_view(template_name='users/reset_password.html'),
+                     name="reset_password"),
+                path('reset_password_sent/',
+                     auth.PasswordResetDoneView.as_view(template_name='users/reset_password_sent.html'),
+                     name="password_reset_done"),
+                path('reset/<uidb64>/<token>/',
+                     auth.PasswordResetConfirmView.as_view(template_name='users/reset_password_form.html'),
+                     name="password_reset_confirm"),
+                path('reset_password_complete/',
+                     auth.PasswordResetCompleteView.as_view(template_name='users/reset_password_complete.html'),
+                     name="password_reset_complete"), ]
