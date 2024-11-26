@@ -1,4 +1,5 @@
 # This is a simple template for social media website built with django.
+You can visit an example hosted at [pythonanywhere](https://brentwong.pythonanywhere.com/events/)
 
 ## how to use
 
