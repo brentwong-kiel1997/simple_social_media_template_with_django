@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8339b247-4ed5-454c-9f41-faca7f8f4ffd" name="Changes" comment="dotenv update">
+    <list default="true" id="8339b247-4ed5-454c-9f41-faca7f8f4ffd" name="Changes" comment="bug fix">
       <change afterPath="$PROJECT_DIR$/social/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/social/social/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/social/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/users/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +169,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732623145062</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="dotenv update">
+      <option name="closed" value="true" />
+      <created>1732623322841</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1732623322841</updated>
+    </task>
+    <task id="LOCAL-00012" summary="bug fix">
+      <option name="closed" value="true" />
+      <created>1732624225589</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1732624225589</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +214,7 @@
     <MESSAGE value="added events and comments" />
     <MESSAGE value="added paginators for posts and users" />
     <MESSAGE value="dotenv update" />
-    <option name="LAST_COMMIT_MESSAGE" value="dotenv update" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
 </project>

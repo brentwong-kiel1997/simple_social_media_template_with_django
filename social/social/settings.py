@@ -15,6 +15,8 @@ import os
 from dotenv import load_dotenv
 from django.conf.global_settings import MEDIA_ROOT
 
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -139,8 +141,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
-
 
 # email setting example for gmail
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
