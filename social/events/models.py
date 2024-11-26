@@ -27,7 +27,7 @@ class Event_post(models.Model):
     event_post_title = models.CharField(max_length=100)
     post = models.TextField()
     event_yt_url = models.URLField(blank=True)
-    event_post_pic = models.ImageField(upload_to='event_post_pics', blank=True)
+    event_post_pic = models.ImageField(upload_to='event_post_pics', blank=True, default='event_post_pics/default.png')
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     available_date = models.DateField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)

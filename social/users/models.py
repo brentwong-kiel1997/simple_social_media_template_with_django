@@ -11,7 +11,7 @@ class Profile(models.Model):
     email = models.EmailField(max_length=254, blank=True, unique=True)
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
-    profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/', default="profiles/user-default.png")
+    profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/', default="profiles/default.png")
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     def __str__(self):

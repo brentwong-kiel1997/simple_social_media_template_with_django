@@ -5,30 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8339b247-4ed5-454c-9f41-faca7f8f4ffd" name="Changes" comment="First version">
-      <change afterPath="$PROJECT_DIR$/social/comments/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/event_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/templates/events/add_event.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/templates/events/add_event_post.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/templates/events/delete_event.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/templates/events/delete_event_post.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/templates/events/event_post.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/templates/events/events.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/templates/events/single_event.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/tools.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/events/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social/users/templates/users/comment_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/posts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/posts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/social/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/events/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/events/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/media/post_images/F1053497-FB58-4733-A415-F7C7FA5117EA.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/media/post_images/F1053497-FB58-4733-A415-F7C7FA5117EA_0bq0XJ6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/media/post_images/F1053497-FB58-4733-A415-F7C7FA5117EA_2LJPH37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/media/post_images/F1053497-FB58-4733-A415-F7C7FA5117EA_4LPdo1D.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/media/post_images/F1053497-FB58-4733-A415-F7C7FA5117EA_OvxjayT.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/media/post_images/F1053497-FB58-4733-A415-F7C7FA5117EA_yg6uIp5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/media/profiles/IMG_20240414_142038.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/social/posts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/posts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/posts/templates/posts/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/social/posts/templates/posts/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/posts/templates/posts/single_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/social/posts/templates/posts/single_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/posts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/social/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/social/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/social/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/social/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/social/users/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/users/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
