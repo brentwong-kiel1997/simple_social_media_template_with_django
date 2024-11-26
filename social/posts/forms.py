@@ -9,3 +9,5 @@ class PostForm(forms.ModelForm):
 
     title = forms.CharField(required=True)
     body = forms.CharField(required=True, widget=forms.Textarea(attrs={'rows': 4}))
+
+

@@ -1,0 +1,68 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}
+Create/Edit Event Post
+{% endblock %}
+
+{% block content %}
+<h2>Create/Edit Event Post</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="{{ form.event_post_title.id_for_label }}">{{ form.event_post_title.label }}</label>
+        <input type="text" name="{{ form.event_post_title.name }}" class="form-control"
+               value="{{ form.event_post_title.value|default_if_none:'' }}"
+               id="{{ form.event_post_title.id_for_label }}"/>
+        {% for error in form.event_post_title.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.post.id_for_label }}">{{ form.post.label }}</label>
+        <textarea name="{{ form.post.name }}" class="form-control" id="{{ form.post.id_for_label }}">{{ form.post.value|default_if_none:'' }}</textarea>
+        {% for error in form.post.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.event_yt_url.id_for_label }}">{{ form.event_yt_url.label }}</label>
+        <input type="text" name="{{ form.event_yt_url.name }}" class="form-control"
+               value="{{ form.event_yt_url.value|default_if_none:'' }}" id="{{ form.event_yt_url.id_for_label }}"/>
+        {% for error in form.event_yt_url.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.event_post_pic.id_for_label }}">{{ form.event_post_pic.label }}</label>
+        <input type="file" name="{{ form.event_post_pic.name }}" class="form-control"
+               id="{{ form.event_post_pic.id_for_label }}" accept="image/*"/>
+        {% for error in form.event_post_pic.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.available_date.id_for_label }}">{{ form.available_date.label }}</label>
+        <input type="date" name="{{ form.available_date.name }}" class="form-control"
+               value="{{ form.available_date.value|default_if_none:'' }}" id="{{ form.available_date.id_for_label }}"/>
+        {% for error in form.available_date.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="{% url 'events' %}" class="btn btn-secondary">Cancel</a>
+</form>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.16.0/ckeditor.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        CKEDITOR.replace('{{ form.post.id_for_label }}');  // Enable CKEditor for the post field
+    });
+</script>
+{% endblock %}

@@ -18,6 +18,7 @@ urlpatterns = [
     path('users/<str:user_id>', views.user_info, name='user_info'),
     path('message/<str:recipient_id>', views.message, name='message'),
     path('message_list', views.message_list, name='message_list'),
+    path('comment_list', views.comment_list, name='comment_list')
 ]
 
 urlpatterns += [path('reset_password/', auth.PasswordResetView.as_view(template_name='users/reset_password.html'),

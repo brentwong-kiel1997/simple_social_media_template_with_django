@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 from .models import Post
 from .forms import PostForm
 from django.contrib import messages
-
+from comments.models import Post_comment
+from comments.forms import Post_commentForm
 
 # Create your views here.
 
@@ -20,6 +21,16 @@ def posts(request):
 def single_post(request, id):
     post = Post.objects.get(id=id)
     url = post.youtube_url
+    comments = Post_comment.objects.filter(post=post)
+    form =  Post_commentForm
+    if request.method == 'POST':
+        form = Post_commentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.commenter = request.user
+            comment.post = post
+            comment.save()
+            return redirect('single_post', id=post.id)
     if url:
         if 'watch' in url:
             url = url.replace('watch?v=', 'embed/')
@@ -29,7 +40,9 @@ def single_post(request, id):
         else:
             url = ''
     context = {'post': post,
-               'url': url}
+               'url': url,
+               'comments': comments,
+               'form': form}
     return render(request, 'posts/single_post.html', context)
 
 

@@ -1,0 +1,45 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}
+{{ event.event_name }}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .card {
+        width: 300px; /* Fixed width */
+        height: 400px; /* Fixed height */
+        overflow: hidden; /* Ensures no overflow from content */
+    }
+    .card-img-top {
+        width: 100%; /* Ensures image takes full width of card */
+        height: 200px; /* Sets a fixed height for the image */
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+    }
+</style>
+
+{% if user == event.owner %}
+<a href="{% url 'add_event_post' event.id %}" class="btn btn-primary">Add Event Post</a>
+<a href="{% url 'edit_event' event.id %}" class="btn btn-primary">Edit Event</a>
+<a href="{% url 'delete_event' event.id %}" class="btn btn-danger">Delete</a>
+
+{% endif %}
+
+<div class="container">
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-4 mb-4"> <!-- Adjust col-md-4 for 3 cards per row -->
+            <div class="card h-100">
+                <a href="{% url 'event_post' post.id %}"><img src="{{ post.event_post_pic.url }}"
+                                                              class="card-img-top img-fluid"
+                                                              alt="Image for {{ post.event_post_title }}"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.event_post_title }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}
+Events
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .card {
+        width: 300px; /* Fixed width */
+        height: 400px; /* Fixed height */
+        overflow: hidden; /* Ensures no overflow from content */
+    }
+    .card-img-top {
+        width: 100%; /* Ensures image takes full width of card */
+        height: 200px; /* Sets a fixed height for the image */
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+    }
+</style>
+
+<div class="container">
+    {% if request.user.is_staff %}
+    <a href="{% url 'add_event' %}" class="btn btn-primary mb-4">Add Event</a>
+    {% endif %}
+    <div class="row">
+        {% for event in events %}
+        <div class="col-md-4 mb-4"> <!-- Adjust col-md-4 for 3 cards per row -->
+            <div class="card h-100">
+                <a href="{% url 'single_event' event.id %}"><img src="{{ event.event_pic.url }}"
+                                                                 class="card-img-top img-fluid"
+                                                                 alt="Image for {{ event.event_name }}"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ event.event_name }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

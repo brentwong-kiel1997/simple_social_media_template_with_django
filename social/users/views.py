@@ -9,6 +9,7 @@ from posts.models import Post
 from django.db.models import Q
 from .models import Message
 import datetime
+from comments.models import Post_comment, Event_comment
 
 
 def register_user(request):
@@ -62,6 +63,7 @@ def profile(request):
     context = {
         'profile': profile
     }
+
     return render(request, 'users/profile.html', context)
 
 
@@ -158,3 +160,16 @@ def message_list(request):
     website_messages = Message.objects.filter(recipient=user)
     context = {'website_messages': website_messages}
     return render(request, 'users/message_list.html', context)
+
+
+
+@login_required(login_url='login')
+def comment_list(request):
+    user = request.user
+    posts = Post.objects.filter(owner=user)
+    posts_comments = []
+    for post in posts:
+        comments = Post_comment.objects.filter(post=post)
+        posts_comments.extend(comments)
+    context = {'posts_comments': posts_comments}
+    return render(request, 'users/comment_list.html', context)
