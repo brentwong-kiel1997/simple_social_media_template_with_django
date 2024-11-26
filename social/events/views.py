@@ -69,6 +69,7 @@ def delete_event(request, event_id):
     title = event.event_name
     if request.method == 'POST':
         event.delete()
+        return redirect('index')
     context = {
         'title': title,
         'event': event
