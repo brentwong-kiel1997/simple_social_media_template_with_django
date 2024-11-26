@@ -5,6 +5,9 @@ from .forms import PostForm
 from django.contrib import messages
 from comments.models import Post_comment
 from comments.forms import Post_commentForm
+from django.db.models import Q
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
 
 # Create your views here.
 
@@ -13,8 +16,40 @@ def index(request):
 
 
 def posts(request):
-    posts = Post.objects.all()
-    context = {'posts': posts}
+    search_query = ''
+    if request.GET.get('search_query'):
+        search_query = request.GET.get('search_query')
+        print('search_query: ' + search_query)
+    posts = Post.objects.distinct().filter(
+        Q(title__icontains=search_query) |
+        Q(body__icontains=search_query) |
+        Q(owner__username__icontains=search_query))
+
+    page = request.GET.get('page')
+    results = 12
+    paginator = Paginator(posts, results)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        page = 1
+        posts = paginator.page(page)
+    except EmptyPage:
+        page = paginator.num_pages
+        posts = paginator.page(page)
+
+    left_index = (int(page) - 4)
+    if left_index < 1:
+        left_index = 1
+    right_index = (int(page) + 5)
+    if right_index > paginator.num_pages:
+        right_index = paginator.num_pages + 1
+
+    custom_range = range(left_index, right_index)
+
+    context = {'posts': posts,
+               'search_query': search_query,
+               'paginator': paginator,
+               'custom_range': custom_range}
     return render(request, 'posts/posts.html', context)
 
 
@@ -22,7 +57,7 @@ def single_post(request, id):
     post = Post.objects.get(id=id)
     url = post.youtube_url
     comments = Post_comment.objects.filter(post=post)
-    form =  Post_commentForm
+    form = Post_commentForm
     if request.method == 'POST':
         form = Post_commentForm(request.POST)
         if form.is_valid():

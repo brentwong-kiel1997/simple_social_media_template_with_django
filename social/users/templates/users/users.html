@@ -19,6 +19,20 @@ Users
     }
 </style>
 
+
+<div>
+    <form id='searchForm' class="d-flex align-items-center" action="{% url 'users' %}" method="GET">
+        <label for="formInputSearch" class="form-label me-2 mb-0">Search</label>
+        <input id="formInputSearch" type="text" name="search_query" class="form-control me-2"
+               placeholder="Search posts" value="{{search_query}}" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+<br>
+
+
+
+
 <div class="container">
     <div class="row">
         {% for user in users %}
@@ -36,6 +50,9 @@ Users
         {% endfor %}
     </div>
 </div>
+
+
+   {% include 'posts/pagination.html' with query_set=users%}
 
 
 {% endblock %}

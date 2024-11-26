@@ -1,5 +1,7 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
 from .forms import Custom_user_creation_form, Profile_form, Message_form
 from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect, get_object_or_404
@@ -94,8 +96,42 @@ def delete_profile(request):
 
 
 def users(request):
-    users = get_user_model().objects.all()
-    context = {'users': users}
+    search_query = ''
+    if request.GET.get('search_query'):
+        search_query = request.GET.get('search_query')
+        print('search_query: ' + search_query)
+
+    users = get_user_model().objects.distinct().filter(
+        Q(username__icontains=search_query) |
+        Q(profile__bio__icontains=search_query) |
+        Q(profile__location__icontains=search_query)
+    )
+
+    page = request.GET.get('page')
+    results = 12
+    paginator = Paginator(users, results)
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        page = 1
+        users = paginator.page(page)
+    except EmptyPage:
+        page = paginator.num_pages
+        users = paginator.page(page)
+
+    left_index = (int(page) - 4)
+    if left_index < 1:
+        left_index = 1
+    right_index = (int(page) + 5)
+    if right_index > paginator.num_pages:
+        right_index = paginator.num_pages + 1
+
+    custom_range = range(left_index, right_index)
+
+    context = {'users': users,
+               'custom_range': custom_range,
+               'search_query': search_query,
+               'paginator': paginator, }
     return render(request, 'users/users.html', context)
 
 
@@ -160,7 +196,6 @@ def message_list(request):
     website_messages = Message.objects.filter(recipient=user)
     context = {'website_messages': website_messages}
     return render(request, 'users/message_list.html', context)
-
 
 
 @login_required(login_url='login')
