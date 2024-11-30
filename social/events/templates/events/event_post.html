@@ -10,6 +10,7 @@
         <!-- Post Title -->
         <a href="{% url 'single_event' post.event.id %}" class="btn btn-primary">Back</a>
         <h1 class="display-4 mb-4 text-center text-primary">{{ post.event_post_title }}</h1>
+        Posted by: {{ post.owner.username }}
         {% if user == post.owner %}
         <a href="{% url 'edit_event_post' post.id %}" class="btn btn-primary">Edit</a>
         <a href="{% url 'delete_event_post' post.id %}" class="btn btn-danger">Delete</a>
