@@ -19,11 +19,10 @@
     }
 </style>
 
-{% if user == event.owner %}
+{% if user.is_staff %}
 <a href="{% url 'add_event_post' event.id %}" class="btn btn-primary">Add Event Post</a>
 <a href="{% url 'edit_event' event.id %}" class="btn btn-primary">Edit Event</a>
 <a href="{% url 'delete_event' event.id %}" class="btn btn-danger">Delete</a>
-
 {% endif %}
 
 <h1 class="display-4 mb-4 text-center text-primary">{{ event.event_name }}</h1>
