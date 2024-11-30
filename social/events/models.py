@@ -36,4 +36,4 @@ class Event_post(models.Model):
         return self.event_post_title
 
     class Meta:
-        ordering = ['-created']
+        ordering = ['-available_date','-created']
